@@ -1,85 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding w/ Friends</title>
     <link ref="stylesheet" href="/style.css">
-
 </head>
-
 <body>
 <main class="game">
-    <!--
-     PAGE TITLE
-    -->
-    <h1>
-        Rock, Paper, Scissors
-    </h1>
+    <!--    PAGE TITLE-->
+    <h1>Rock, Paper, Scissors</h1>
 
-    <!--
-    PICTURE GOES HERE
-    -->
+    <!--       INSTRUCTIONS UI-->
+    <h2>Make your selection, and see if you can beat the computer!</h2>
+
+    <!--    PICTURE GOES HERE-->
     <section>
-
-        <img src="#" alt="Choice">
-
+        <h1>player choice!</h1>
+        <h3 class="playerChoice"></h3>
     </section>
-
-    <!--
-     INSTRUCTIONS UI
-    -->
-    <h2>
-        YO MOOOO'
-    </h2>
-
-    <!--
-    BUTTONS FOR SELECTION
-    -->
+    <br>
     <section>
-
-        <button type="button" class="rock" value="rock">
-            Rock
-        </button>
-
-        <button type="button" class="paper" value="paper">
-            Paper
-        </button>
-
-        <button type="button" class="scissor" value="scissor">
-            Scissor
-        </button>
-
+        <h1>computer choice!</h1>
+        <h3 class="computerChoice"></h3>
     </section>
+    <br>
+    <br>
 
-
-    <!--
-    CONFIRM AND RESET BUTTONS
-    -->
+    <!--    BUTTONS FOR SELECTION-->
     <section>
-
-        <button type="button" class="reset">
-            Play Again
-        </button>
-
+        <button class="playerOptions" value="rock">Rock</button>
+        <button class="playerOptions" value="paper">Paper</button>
+        <button class="playerOptions" value="scissor">Scissor</button>
     </section>
 
     <!--Results-->
     <section>
-
-        <h2 class="results">
-            Did you win?
-        </h2>
-
+        <h2 class="result">Did you win?</h2>
     </section>
-
 </main>
-
-
 <script type="text/javascript" src="/js/main.js"></script>
-
 </body>
-
 </html>

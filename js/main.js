@@ -1,18 +1,52 @@
-const rock = document.querySelector('.rock')
-const scissor = document.querySelector('.scissor')
-const paper = document.querySelector('.paper')
-const playerOptions = [rock, scissor, paper]
-const computerOptions = ['rock','paper','scissor']
-const confirm = document.querySelector('.confirm')
-const reset = document.querySelector('.reset')
-let userOption = '';
+const playerChoice = document.querySelector('.playerChoice')
+const computerChoice = document.querySelector('.computerChoice')
+const playerOptions = document.querySelectorAll('.playerOptions')
+const result = document.querySelector('.result')
 
-playerOptions.forEach(option => {
-    option.addEventListener('click', async () => {
-        userOption = option.value;
-        const response = await fetch(`/api?student=${userOption}`)
-        const data = await response.json()
-        console.log(data)
-        document.querySelector('.results').textContent = data.result;
+//add event listeners
+playerOptions.forEach(selection => {
+    selection.addEventListener('click', async (event) => {
+        const targetSelection = event.target.value;
+        let player = '';
+        const res = await fetch(`/api?`)
+        const data = await res.json()
+
+        if (targetSelection === 'rock') {
+            player = targetSelection
+        } else if (targetSelection === 'paper') {
+            player = targetSelection
+        } else if (targetSelection === 'scissor') {
+            player = targetSelection
+        }
+        const computer = data.result;
+        winner(player, computer)
     })
 })
+
+
+// WIN CONDITIONS
+function winner(player, computer) {
+    if (player === computer) {
+        result.textContent = 'Tie!'
+    } else if (player === 'rock') {
+        if (computer === 'paper') {
+            result.textContent = 'Computer Wins!';
+        } else {
+            result.textContent = 'You Win!';
+        }
+    } else if (player === 'scissor') {
+        if (computer === 'rock') {
+            result.textContent = 'Computer Wins!';
+        } else {
+            result.textContent = 'You Win!';
+        }
+    } else if (player === 'paper') {
+        if (computer === 'scissor') {
+            result.textContent = 'Computer Wins!';
+        } else {
+            result.textContent = 'You Win!';
+        }
+    }
+    playerChoice.textContent = player
+    computerChoice.textContent = computer
+}
