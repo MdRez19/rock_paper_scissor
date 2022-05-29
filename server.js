@@ -6,8 +6,9 @@ const url = require('url');
 //create web server!!
 const server = http.createServer((req, res) => {
     const pathName = url.parse(req.url).pathname;
-    console.log(pathName)
-    if (req.url === '/'){ //check the URL of the current request!
+
+    //check the URL of the current request!
+    if (req.url === '/'){
         fs.readFile('index.html', (err, data) => {
             // set response header!
             res.writeHead(200, {'Content-Type': 'text/html'})
