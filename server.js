@@ -38,9 +38,13 @@ const server = http.createServer((req, res) => {
       };
       res.end(JSON.stringify(objectToString));
     }
-  }
-
-  else if (pathName === '/js/main.js') {
+  } else if (pathName === '/css/styles.css') {
+    fs.readFile('js/styles.cc', function (err, data){
+      res.writeHead(200, {'Content-Type': 'text/css'});
+      res.write(data);
+      res.end();
+    });
+  } else if (pathName === '/js/main.js') {
     fs.readFile('js/main.js', function (err, data) {
       res.writeHead(200, { 'Content-Type': 'text/javascript' });
       res.write(data);
