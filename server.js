@@ -39,7 +39,7 @@ const server = http.createServer((req, res) => {
       res.end(JSON.stringify(objectToString));
     }
   } else if (pathName === '/css/styles.css') {
-    fs.readFile('js/styles.cc', function (err, data){
+    fs.readFile('css/styles.css', function (err, data){
       res.writeHead(200, {'Content-Type': 'text/css'});
       res.write(data);
       res.end();
