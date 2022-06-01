@@ -1,3 +1,5 @@
+const playerImg = document.querySelector('.player_img')
+const computerImg = document.querySelector('.computer_img')
 const playerChoice = document.querySelector('.playerChoice')
 const computerChoice = document.querySelector('.computerChoice')
 const playerOptions = document.querySelectorAll('.playerOptions')
@@ -8,16 +10,21 @@ playerOptions.forEach(selection => {
     selection.addEventListener('click', async (event) => {
         const targetSelection = event.target.value;
         let player = '';
-        const res = await fetch(`/api?`)
+        const res = await fetch(`/api?student`)
         const data = await res.json()
 
         if (targetSelection === 'rock') {
+            playerImg.src = 'img/rock.png';
             player = targetSelection
         } else if (targetSelection === 'paper') {
+            playerImg.src = 'img/paper.png';
             player = targetSelection
         } else if (targetSelection === 'scissor') {
+            playerImg.src = 'img/scissor.png';
             player = targetSelection
         }
+
+        computerImg.src = data.img;
         const computer = data.result;
         winner(player, computer)
     })
